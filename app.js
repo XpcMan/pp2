@@ -23,6 +23,9 @@ setInterval(function(){
   })
 },900000)
 
+app.get("/",(req,res)=>{
+  res.sendStatus(403);
+});
 
 app.get("/extension-69",(req,res)=>{
   var link;
