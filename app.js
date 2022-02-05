@@ -24,7 +24,7 @@ setInterval(function(){
 },900000)
 
 
-app.get("/",(req,res)=>{
+app.get("/extension-69",(req,res)=>{
   var link;
   Popup.find().then(pop=>{
     var arr = pop[0].links;
