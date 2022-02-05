@@ -1,0 +1,9 @@
+<div><a href="/form">form</a></div>
+<% var count = 1%>
+<% for(let pop of arr) {%>
+<form action="/delete" method="POST">
+<input type ="hidden" name="val" value="<%= pop %>">
+<center><h2><%=count%>.     <a href="<%= pop%>" target="_blank"><%= pop %></a> <button type="submit">Delete</button></h2></center>
+</form>
+<% count++ %>
+<%}%>
