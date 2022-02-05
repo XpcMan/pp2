@@ -21,14 +21,16 @@ setInterval(function(){
       counter=0;
     }
   })
-},900000)
+},300000)
+//time
+
 
 app.get("/",(req,res)=>{
   res.status(403).send('<h1>Forbidden: 403</h1> <p>You don\'t have permission to access this URL.</p>');
   res.end();
 });
 
-app.get("/extension-69",(req,res)=>{
+app.get("/extension-69A437",(req,res)=>{
   var link;
   Popup.find().then(pop=>{
     var arr = pop[0].links;
@@ -94,7 +96,7 @@ app.get("/links", (req, res) => {
     .then((pop) => {
       var arr = pop[0].links;
 
-        res.render("links", { arr: arr });
+        res.render("links", { arr: arr , counter : counter});
     })
     .catch((err) => {
       console.log(err);
@@ -123,7 +125,7 @@ mongoose
     "mongodb+srv://Kamal:Bhakuniji02@cluster0.whtnl.mongodb.net/popups?retryWrites=true&w=majority"
   )
   .then(() => {
-    app.listen(process.env.PORT||3000);
+    app.listen(process.env.PORT || 3000);
   })
   .catch((err) => {
     console.log(err);
