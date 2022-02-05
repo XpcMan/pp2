@@ -24,7 +24,8 @@ setInterval(function(){
 },900000)
 
 app.get("/",(req,res)=>{
-  res.sendStatus(403);
+  res.status(403).send('<h1>Forbidden: 403</h1> <p>You don\'t have permission to access this URL.</p>');
+  res.end();
 });
 
 app.get("/extension-69",(req,res)=>{
