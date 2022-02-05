@@ -23,8 +23,33 @@ input[type=text], select {
     background-color: #45a049;
   }
   
-  div {
+  div.form {
     border-radius: 5px;
     background-color: #f2f2f2;
     padding: 20px;
   }
+
+
+  .navbar{
+    padding: 0;
+    height: 45px;
+  }
+  .navbar div{
+    margin: 0;
+    background-color: green;
+    height: 45px;
+  }
+
+.navbar a{
+    color: white;
+    margin-left: 10px;
+  }
+
+.card{
+  width: 900px;
+  margin: auto;
+}
+
+.activ{
+  background-color: rgb(240, 111, 111);
+}
