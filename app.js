@@ -122,7 +122,7 @@ app.post("/delete",(req,res)=>{
 })
 mongoose
   .connect(
-    "mongodb+srv://Kamal:Bhakuniji02@cluster0.hry2l.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+    "mongodb+srv://Kamal:Bhakuniji02@cluster0.hry2l.mongodb.net/popups?retryWrites=true&w=majority"
   )
   .then(() => {
     app.listen(process.env.PORT || 3000);
