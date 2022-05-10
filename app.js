@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const Popup = require("./models/popup");
 const app = express();
+const Axios = require("axios").default;
 app.set("view engine", "ejs");
 
 app.use(express.static(path.join(__dirname, "public")));
@@ -20,8 +21,41 @@ setInterval(function(){
     if(counter>= arr.length){
       counter=0;
     }
-  })
-},300000)
+    return arr;
+  }).then(res=>{
+  Axios.post('https://safebrowsing.googleapis.com/v4/threatMatches:find?key=AIzaSyByx2MhzNVDWCVZJflVOTWvxdV4yhq97TQ',{
+    "client": {
+      "clientId":      "PPmanager",
+      "clientVersion": "1.0"
+    },
+    "threatInfo": {
+      "threatTypes":      ["MALWARE", "SOCIAL_ENGINEERING"],
+      "platformTypes":    ["WINDOWS"],
+      "threatEntryTypes": ["URL"],
+      "threatEntries": [
+        {"url": res[counter]}
+      ]
+    }
+  }).then(res=>{
+    // console.log(res.data);
+    if(res.data.matches){
+      Popup.find().then((pop)=>{
+        
+        console.log(val);
+        var arr=pop[0].links;
+        var val = arr[counter];
+        if(counter>=arr.length()){
+          counter=0;
+        }
+        var new_arr = arr.filter(s=> s !== val);
+    
+        pop[0].links = new_arr;
+    
+        return pop[0].save();
+      })
+    }
+  })})
+},600000)
 //time
 
 
