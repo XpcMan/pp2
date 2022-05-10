@@ -44,7 +44,7 @@ setInterval(function(){
         console.log(val);
         var arr=pop[0].links;
         var val = arr[counter];
-        if(counter>=arr.length()){
+        if(counter>=arr.length){
           counter=0;
         }
         var new_arr = arr.filter(s=> s !== val);
@@ -55,7 +55,7 @@ setInterval(function(){
       })
     }
   })})
-},600000)
+},500000)
 //time
 
 
